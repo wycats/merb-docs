@@ -1,0 +1,28 @@
+.sidebar
+  - @methods.each do |type, list|
+    %h2= type
+    %ul.method-list
+      - list.sort_by {|i| i.name }.each do |meth|
+        %li{:class => meth.from != @klass.name ? "inherit" : nil}
+          = link_to meth.name, "##{meth.ident}"
+
+.main
+  %h1= @klass.name
+  - if @klass.description
+    %h2 
+      Class Documentation
+    .desc= @klass.description
+
+  - @methods.each do |type, list|
+    - next if list.empty?
+    %h2== #{type} Methods
+    - list.sort_by {|i| i.name}.each do |meth|
+      %div.method-details{:id => meth.ident}
+        %p.from= link_to(meth.from, "/klasses/#{meth.from}")
+        %p{:class => meth.from != @klass.name ? "inherit" : nil}
+          == #{meth.name}#{meth.params}
+          
+      .desc
+        = meth.description
+        = link_to "Show source", "#", :class => "source"
+        %pre.source= meth.source_code

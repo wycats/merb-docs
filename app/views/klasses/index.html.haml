@@ -1,0 +1,3 @@
+%ul
+  - @klasses.each do |klass|
+    %li= link_to(klass.name, resource(klass))

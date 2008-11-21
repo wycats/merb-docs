@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+  <head>
+    <title>Fresh Merb App</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="/stylesheets/master.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" src="/javascripts/jquery.js?112018091597"></script><script type="text/javascript" src="/javascripts/application.js?112018091512"></script>
+  </head>
+  <body>
+    <div class='sidebar'>
+  <h2>Class</h2>
+  <ul class='method-list'>
+    <li>
+      <a href="#M000578">after_app_loads</a>
+    </li>
+    <li>
+      <a href="#M000579">before_app_loads</a>
+    </li>
+    <li>
+      <a href="#M000580">before_master_shutdown</a>
+    </li>
+    <li>
+      <a href="#M000581">before_worker_shutdown</a>
+    </li>
+  </ul>
+</div>
+<div class='main'>
+  <h1>Merb::BootLoader</h1>
+  <h2>Class Methods</h2>
+  <div class='method-details' id='M000578'>
+    <p class='from'><a href="/klasses/Merb::BootLoader">Merb::BootLoader</a></p>
+    <p>
+      after_app_loads(&block)
+    </p>
+  </div>
+  <div class='desc'>
+    <p>
+    Execute a block of code after the app loads.
+    </p><h4>Parameters</h4><table>
+          <tr>
+            <td valign="top">&amp;block:</td>
+            <td>A block to be added to the callbacks that will be executed after the app
+    loads.
+    
+    </td>
+          </tr>
+        </table><p>
+    :api: public
+    </p>
+    <a class="source" href="#">Show source</a>
+    <pre class='source'><span class="ruby-comment cmt"># File lib/merb-core/bootloader.rb, line 157</span>&#x000A;      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">after_app_loads</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)&#x000A;        <span class="ruby-identifier">after_load_callbacks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">block</span>&#x000A;      <span class="ruby-keyword kw">end</span></pre>
+  </div>
+  <div class='method-details' id='M000579'>
+    <p class='from'><a href="/klasses/Merb::BootLoader">Merb::BootLoader</a></p>
+    <p>
+      before_app_loads(&block)
+    </p>
+  </div>
+  <div class='desc'>
+    <p>
+    Execute a block of code before the app loads but after dependencies load.
+    </p><h4>Parameters</h4><table>
+          <tr>
+            <td valign="top">&amp;block:</td>
+            <td>A block to be added to the callbacks that will be executed before the app
+    loads.
+    
+    </td>
+          </tr>
+        </table><p>
+    :api: public
+    </p>
+    <a class="source" href="#">Show source</a>
+    <pre class='source'><span class="ruby-comment cmt"># File lib/merb-core/bootloader.rb, line 169</span>&#x000A;      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">before_app_loads</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)&#x000A;        <span class="ruby-identifier">before_load_callbacks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">block</span>&#x000A;      <span class="ruby-keyword kw">end</span></pre>
+  </div>
+  <div class='method-details' id='M000580'>
+    <p class='from'><a href="/klasses/Merb::BootLoader">Merb::BootLoader</a></p>
+    <p>
+      before_master_shutdown(&block)
+    </p>
+  </div>
+  <div class='desc'>
+    <p>
+    Execute a block of code before master process is shut down. Only makes
+    sense on platforms where <a href="/klasses/Merb">Merb</a> server can use forking.
+    </p><h4>Parameters</h4><table>
+          <tr>
+            <td valign="top">&amp;block:</td>
+            <td>A block to be added to the callbacks that will be executed before master
+    process is shut down.
+    
+    </td>
+          </tr>
+        </table><p>
+    :api: public
+    </p>
+    <a class="source" href="#">Show source</a>
+    <pre class='source'><span class="ruby-comment cmt"># File lib/merb-core/bootloader.rb, line 182</span>&#x000A;      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">before_master_shutdown</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)&#x000A;        <span class="ruby-identifier">before_master_shutdown_callbacks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">block</span>&#x000A;      <span class="ruby-keyword kw">end</span></pre>
+  </div>
+  <div class='method-details' id='M000581'>
+    <p class='from'><a href="/klasses/Merb::BootLoader">Merb::BootLoader</a></p>
+    <p>
+      before_worker_shutdown(&block)
+    </p>
+  </div>
+  <div class='desc'>
+    <p>
+    Execute a block of code before worker process is shut down. Only makes
+    sense on platforms where <a href="/klasses/Merb">Merb</a> server can use forking.
+    </p><h4>Parameters</h4><table>
+          <tr>
+            <td valign="top">&amp;block:</td>
+            <td>A block to be added to the callbacks that will be executed before worker
+    process is shut down.
+    
+    </td>
+          </tr>
+        </table><p>
+    :api: public
+    </p>
+    <a class="source" href="#">Show source</a>
+    <pre class='source'><span class="ruby-comment cmt"># File lib/merb-core/bootloader.rb, line 195</span>&#x000A;      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">before_worker_shutdown</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)&#x000A;        <span class="ruby-identifier">before_worker_shutdown_callbacks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">block</span>&#x000A;      <span class="ruby-keyword kw">end</span></pre>
+  </div>
+</div>
+
+  </body>
+</html>
