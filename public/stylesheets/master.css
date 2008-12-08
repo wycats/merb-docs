@@ -138,6 +138,13 @@ div.desc {
   margin: 0 20px 20px 0;
   padding: 0;
   background-color: #ccc; }
+  div.desc pre {
+    padding: 5px;
+    white-space: pre;
+    color: #fff;
+    background-color: #333; }
+    div.desc pre.source {
+      display: none; }
   div.desc ul {
     margin-left: 20px; }
   div.desc table {
@@ -151,19 +158,12 @@ div.desc {
     color: #fff; }
     div.desc div.source a {
       color: #fff; }
-    div.desc div.source pre {
-      padding: 5px; }
-      div.desc div.source pre.source {
-        white-space: pre;
-        color: #fff;
-        display: none; }
   div.desc+div.method-details {
     border-top: 1px solid #999;
     margin-bottom: 5px; }
 
 div.method-details {
   overflow: hidden;
-  margin-right: 0;
   border-left: 1px solid #999;
   border-bottom: 1px solid #999;
   background-color: #ffc;
@@ -233,7 +233,8 @@ div.main {
   position: fixed;
   top: 90px;
   bottom: 0;
-  overflow: auto; }
+  overflow-y: auto;
+  overflow-x: hidden; }
   div.main h2 {
     margin-left: -15px; }
 
