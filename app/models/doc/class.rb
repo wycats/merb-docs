@@ -2,6 +2,12 @@ module Doc
   class Class
     include Describe
 
+    ADDED = {
+      "Merb::Router::Behavior" => ["Merb::Router::Resources"],
+      "Merb::Controller" => 
+        %w(Merb::CookiesMixin Merb::SessionMixin)
+    }
+
     def self.any?(opts = {})
       !!get_all(opts).first
     end
@@ -16,7 +22,9 @@ module Doc
       opts[:types] ||= %w(Class Module)
       search = opts[:name] ? "[name='#{opts[:name]}']" : ""
       search << (opts[:api] ? ":contains(':api: #{opts[:api]}')" : "")
-      ret = DOC_XML.css(opts[:types].map {|name| "#{name}#{search}"}.join(", "))
+      search = opts[:types].map {|name| "#{name}#{search}"}.join(", ")
+      puts search
+      ret = DOC_XML.css(search)
     end
   
     public
@@ -47,7 +55,7 @@ module Doc
     end
   
     def ancestors
-      @included_modules + (@superclass ? [@superclass] : [])
+      @included_modules + Array(@superclass) + Array(ADDED[@name])
     end
   
     def method_list

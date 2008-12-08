@@ -3,6 +3,7 @@ body
   font-size: 12px
   background-color: #fff
   margin: 10px
+  overflow: hidden
 
 *
   margin: 0px
@@ -13,8 +14,11 @@ html
   height: 100%
   margin-bottom: 1px
 
-h1 
-  margin-bottom: 20px
+h1
+  position: fixed
+  width: 100%
+  top: 50px
+  left: 210px
 
 #container
   width: 80%
@@ -95,8 +99,7 @@ p
   padding: 5px
 
 a 
-  color: #4d9b12
-  background-color: #fff
+  color: #060
   text-decoration: none
   &:hover 
     text-decoration: underline
@@ -124,6 +127,7 @@ ul.method-list
   list-style-type: none
   margin-top: 5px
   margin-bottom: 20px
+  margin-left: 3px
   li
     padding-left: 20px
     &.inherit
@@ -133,20 +137,30 @@ h3.from
   float: right
 
 div.desc 
-  margin: 0 20px 20px 20px
-  padding: 10px
+  margin: 0 20px 20px 0
+  padding: 0
   background-color: #ccc
   ul 
     margin-left: 20px
   table 
     margin: 5px 0 5px 5px
-  pre 
-    padding: 5px
-    &.source 
-      white-space: pre
-      background-color: #111
+  div.source
+    display: block
+    -moz-border-radius: 10px
+    -webkit-border-radius: 10px
+    padding: 5px 0 5px 10px
+    background-color: #333
+    color: #fff
+    a
       color: #fff
-      display: none
+    pre
+      padding: 5px
+      &.source 
+        white-space: pre
+        color: #fff
+        display: none
+  &+div.method-details
+    border-top: 1px solid #999
 
 div.method-details 
   overflow: hidden
@@ -157,19 +171,63 @@ div.method-details
     padding-left: 20px
     background: url(/images/up.png) no-repeat 2px
 
-div.sidebar
+div.header
   position: fixed
-  height: 100%
-  overflow: auto
+  left: 200px
+  top: 0
+  right: 0
+  height: 18px
+  padding: 12px
+  font-size: 15px
+  background-color: #ccc
+  border-bottom: 1px solid #999
+  a
+    padding: 3.5px 10px 5px 7px
+    -webkit-border-radius: 12px
+    -moz-border-radius: 12px
+    text-shadow: #999 1px 1px 1px
+    border-top: 2px solid #777
+    border-left: 2px solid #777
+    background-color: #999
+    color: #fff
+    text-decoration: none
+    &:hover
+      background-color: #666
+      border-top: 2px solid #444
+      border-left: 2px solid #444
+  a.selected
+    background-color: #333
+    border-top: 2px solid #111
+    border-left: 2px solid #111
+
+div.sidebar
+  background-color: #ddf
+  position: fixed
+  overflow-y: scroll
   width: 200px
-  top: 10px
-  left: 10px
+  padding-bottom: 10px
+  top: 0
+  bottom: 0
+  left: 0
+  a
+    color: #030
+    line-height: 20px
+    text-decoration: none
+    &:hover
+      color: #000
   
 div.main
-  margin-left: 210px
-  border-left: 1px solid #000
-  padding-left: 10px
-
+  left: 200px
+  right: 0
+  padding-left: 15px
+  padding-top: 15px
+  background-color: #ccc
+  border-top: 1px solid #999
+  position: fixed
+  top: 90px
+  bottom: 0
+  overflow: auto
+  
 .ruby-constant   
   color: #7fffd4
   background: transparent 

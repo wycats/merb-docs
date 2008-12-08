@@ -1,5 +1,6 @@
 .sidebar
   - @methods.each do |type, list|
+    - next if list.empty?
     %h2= type
     %ul.method-list
       - list.sort_by {|i| i.name }.each do |meth|
@@ -24,5 +25,6 @@
           
       .desc
         = meth.description
-        = link_to "Show source", "#", :class => "source"
-        %pre.source= meth.source_code
+        .source
+          = link_to "Show source", "#", :class => "source"
+          %pre.source= meth.source_code

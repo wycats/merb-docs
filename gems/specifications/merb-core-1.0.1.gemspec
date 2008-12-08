@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{merb-core}
-  s.version = "1.0"
+  s.version = "1.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ezra Zygmuntowicz"]
-  s.date = %q{2008-11-06}
+  s.date = %q{2008-11-21}
   s.default_executable = %q{merb}
   s.description = %q{Merb. Pocket rocket web framework.}
   s.email = %q{ez@engineyard.com}

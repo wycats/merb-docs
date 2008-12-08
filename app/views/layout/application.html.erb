@@ -7,7 +7,18 @@
     <%= js_include_tag "jquery", "application" %>
   </head>
   <body>
-    <%#= message[:notice] %>
+    <% if @klass %>
+    <div class="header">
+      <%= nav_link "Top Level", "Kernel" %>
+      <%= nav_link "Merb", "Merb" %>
+      <%= nav_link "Console", "Merb::Rack::Console" %>      
+      <%= nav_link "Controller/View", "Merb::Controller" %>
+      <%= nav_link "Request", "Merb::Request" %>
+      <%= nav_link "Bootloader", "Merb::BootLoader" %>
+      <%= nav_link "Router", "Merb::Router::Behavior" %>
+      <%= nav_link "Parsing Helpers", "Merb::Parse" %>
+    </div>
+    <% end %>
     <%= catch_content :for_layout %>
   </body>
 </html>

@@ -13,7 +13,25 @@ module Doc
           node.replace(txt)
         end
       end
-      desc.css("body")[0].inner_html
+      tweak_pres(desc)
+      ret = desc.css("body")[0].inner_html
+    end
+    
+    def tweak_pres(desc)
+      desc.css("pre").each do |pre|
+        html = pre.inner_html
+        lines = html.split("\n").reject {|x| x.empty? }
+        min = lines.inject(1000) do |acc,line|
+          line =~ /^\s*/
+          $0.size < acc ? $0.size : acc
+        end
+        
+        lines.map! do |line|
+          line.gsub!(/^\s{#{min}}/, "")
+          line
+        end
+        pre.content = lines.join("\n")
+      end
     end
   end
 end
