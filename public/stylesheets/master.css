@@ -158,11 +158,20 @@ div.desc {
         color: #fff;
         display: none; }
   div.desc+div.method-details {
-    border-top: 1px solid #999; }
+    border-top: 1px solid #999;
+    margin-bottom: 5px; }
 
 div.method-details {
   overflow: hidden;
-  margin-right: 20px; }
+  margin-right: 0;
+  border-left: 1px solid #999;
+  border-bottom: 1px solid #999;
+  background-color: #ffc;
+  font-weight: bold;
+  padding-left: 5px;
+  padding-right: 20px;
+  -webkit-box-shadow: 2px 2px 2px #999;
+  -moz-box-shadow: #999 2px 2px 2px; }
   div.method-details p.from {
     float: right; }
   div.method-details p.inherit {
@@ -225,6 +234,8 @@ div.main {
   top: 90px;
   bottom: 0;
   overflow: auto; }
+  div.main h2 {
+    margin-left: -15px; }
 
 .ruby-constant {
   color: #7fffd4;

@@ -1,5 +1,5 @@
 class Klasses < Application
-  cache :index, :show
+  # cache :index, :show
 
   # ...and remember, everything returned from an action
   # goes to the client...
